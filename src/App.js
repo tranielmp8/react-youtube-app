@@ -7,12 +7,11 @@ class App extends React.Component {
   state = { videos: [] };
 
   onTermSubmit = async (term) => {
-    console.log(term);
-    await youtube.get("/search", {
+    const response = await youtube.get("/search", {
       q: term,
     });
-    // console.log(response);
-    // this.setState({ videos: response.data.items });
+    console.log(response);
+    this.setState({ videos: response.data.items });
   };
 
   render() {
